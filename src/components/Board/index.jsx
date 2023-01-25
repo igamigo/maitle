@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Box from "../Box";
 import words from "../../words";
+import goalWords from "../../goal_words";
 
 const correct =
-  words[Math.floor(Math.random() * words.length - 1)].toUpperCase();
+  goalWords[Math.floor((new Date()).getDate() % goalWords.length)].toUpperCase();
 let defaulBoard = [];
 let defaultLetters = [];
 
@@ -13,7 +14,7 @@ let defaultLetters = [];
 
 for (let i = 0; i < 6; i++) {
   defaulBoard.push([]);
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < correct.length; j++) {
     defaulBoard[i].push(["", ""]);
   }
 }
@@ -30,7 +31,7 @@ function Board(props) {
 
   useEffect(() => {
     if (win || lost) {
-      console.log("Game ended!");
+      console.log("Terminado!");
     } else {
       if (props.clicks !== 0) {
         if (props.letter === "DEL") {
@@ -41,12 +42,12 @@ function Board(props) {
           });
         } else {
           setBoard((prevBoard) => {
-            if (col < 5) {
+            if (col < correct.length) {
               if (props.letter !== "ENTER") {
                 prevBoard[row][col][0] = props.letter;
                 setCol(col + 1);
               } else {
-                props.error("Words are 5 letters long!");
+                props.error("Palabras de 5 letras!");
                 setTimeout(() => {
                   props.error("");
                 }, 1000);
@@ -55,11 +56,11 @@ function Board(props) {
               if (props.letter === "ENTER") {
                 let correctLetters = 0;
                 let word = "";
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < correct.length; i++) {
                   word += prevBoard[row][i][0];
                 }
-                if (words.includes(word.toLowerCase())) {
-                  for (let i = 0; i < 5; i++) {
+                if (words.includes(word.toLowerCase()) || correct.toLowerCase() == word.toLowerCase()) {
+                  for (let i = 0; i < correct.length; i++) {
                     if (correct[i] === prevBoard[row][i][0]) {
                       prevBoard[row][i][1] = "C";
                       correctLetters++;
@@ -82,15 +83,15 @@ function Board(props) {
                   }
                   setChanged(!changed);
 
-                  if (correctLetters === 5) {
+                  if (correctLetters === correct.length) {
                     setWin(true);
                     setTimeout(() => {
-                      setMessage("You WIN");
+                      setMessage("Ganasteee");
                     }, 750);
                   }
                   return prevBoard;
                 } else {
-                  props.error("Word not in dictionary");
+                  props.error("La palabra no está en el diccionario");
                   setTimeout(() => {
                     props.error("");
                   }, 1000);
