@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/maitle/static/css/main.6720c8bc.css",
+    "main.js": "/maitle/static/js/main.99c0d93b.js",
+    "static/js/787.92b9447f.chunk.js": "/maitle/static/js/787.92b9447f.chunk.js",
+    "index.html": "/maitle/index.html",
+    "main.6720c8bc.css.map": "/maitle/static/css/main.6720c8bc.css.map",
+    "main.99c0d93b.js.map": "/maitle/static/js/main.99c0d93b.js.map",
+    "787.92b9447f.chunk.js.map": "/maitle/static/js/787.92b9447f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6720c8bc.css",
+    "static/js/main.99c0d93b.js"
+  ]
+}
