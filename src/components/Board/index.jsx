@@ -3,8 +3,11 @@ import Box from "../Box";
 import words from "../../words";
 import goalWords from "../../goal_words";
 
+const date = (new Date());
+const day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+
 const correct =
-  goalWords[Math.floor((new Date()).getDate() % goalWords.length)].toUpperCase();
+  goalWords[Math.floor(day % goalWords.length)].toUpperCase();
 let defaulBoard = [];
 let defaultLetters = [];
 
@@ -47,7 +50,7 @@ function Board(props) {
                 prevBoard[row][col][0] = props.letter;
                 setCol(col + 1);
               } else {
-                props.error("Palabras de 5 letras!");
+                props.error("Faltan letras bro!");
                 setTimeout(() => {
                   props.error("");
                 }, 1000);
@@ -68,10 +71,10 @@ function Board(props) {
                       prevBoard[row][i][1] = "E";
                     else prevBoard[row][i][1] = "N";
                     setRow(row + 1);
-                    if (row === 5) {
+                    if (row === correct.length) {
                       setLost(true);
                       setTimeout(() => {
-                        setMessage(`It was ${correct}`);
+                        setMessage(`Era ${correct}!`);
                       }, 750);
                     }
 

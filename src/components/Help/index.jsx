@@ -19,37 +19,37 @@ function Help() {
   return (
     <>
       <p className="text-left text-sm sm:text-base py-5 font-regular opacity-75 mr-1">
-        Feliz cumple Maichu.
+        Kjjjj si ya sabés cómo jugar
         <br />
-        Aguante River Plate
+        
       </p>
 
       <p className="text-left text-sm sm:text-base py-2 opacity-75">
-        Ya sabés jugar así que ni te voy a explicar.
+        Feliz cumple Maichu <p>&lt;3</p>
       </p>
       <hr />
       <div className="flex gap-1">
-        <Box value="S" state="C" />
-        <Box value="W" />
-        <Box value="E" />
+        <Box value="H" state="C" />
+        <Box value="O" />
+        <Box value="L" />
         <Box value="A" />
-        <Box value="T" />
+        <Box value="A" />
       </div>
       <div className="flex gap-1">
-        <Box value="N" />
-        <Box value="U" />
-        <Box value="M" state="E" />
-        <Box value="B" />
-        <Box value="S" />
+        <Box value="M" />
+        <Box value="A" />
+        <Box value="I" state="E" />
+        <Box value="T" />
+        <Box value="E" />
       </div>
       <p className="text-left text-sm sm:text-base py-2 opacity-75">
       </p>
       <div className="flex gap-1">
-        <Box value="F" />
-        <Box value="L" state="N" />
+        <Box value="❤️" />
+        <Box value="C" state="N" />
         <Box value="A" />
-        <Box value="T" />
-        <Box value="S" />
+        <Box value="R" />
+        <Box value="P" />
       </div>
       <p className="text-left text-sm sm:text-base py-2 opacity-75">
       </p>
