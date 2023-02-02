@@ -6,6 +6,7 @@ import goalWords from "../../goal_words";
 const date = (new Date());
 const day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
 
+
 const correct =
   goalWords[Math.floor(day % goalWords.length)].toUpperCase();
 let defaulBoard = [];
@@ -14,13 +15,15 @@ let defaultLetters = [];
 "abcdefghijklmnopqrstuvwxyz".split("").forEach((i) => {
   defaultLetters[i] = "";
 });
+const max_rows = (correct.length < 5)? 4:6;
 
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < max_rows; i++) {
   defaulBoard.push([]);
   for (let j = 0; j < correct.length; j++) {
     defaulBoard[i].push(["", ""]);
   }
 }
+
 
 function Board(props) {
   const [letters, setLetters] = useState(defaultLetters);
@@ -71,7 +74,7 @@ function Board(props) {
                       prevBoard[row][i][1] = "E";
                     else prevBoard[row][i][1] = "N";
                     setRow(row + 1);
-                    if (row === correct.length) {
+                    if (row === max_rows-1) { // lose
                       setLost(true);
                       setTimeout(() => {
                         setMessage(`Era ${correct}!`);

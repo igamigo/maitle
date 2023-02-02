@@ -1,8 +1,10 @@
 const words = [
+  "melee",
+  "river",
+  "palta",
   "thai",
   "saili",
   "temaco",
-  "palta",
   "sopa",
   "chermecha",
   "gallardo",
@@ -28,7 +30,5 @@ const words = [
   "pancho",
   "dulapip",
   "rientito",
-  "melee",
-  "river",
 ];
 export default words;
