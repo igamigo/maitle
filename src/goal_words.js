@@ -1,7 +1,7 @@
 const words = [
   "thai",
-  "temaco",
   "saili",
+  "temaco",
   "palta",
   "sopa",
   "chermecha",
