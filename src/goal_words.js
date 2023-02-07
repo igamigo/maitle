@@ -1,6 +1,4 @@
 const words = [
-  "melee",
-  "river",
   "palta",
   "thai",
   "saili",
@@ -32,5 +30,7 @@ const words = [
   "pancho",
   "dulapip",
   "rientito",
+  "melee",
+  "river",
 ];
 export default words;
