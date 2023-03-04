@@ -7,14 +7,15 @@ const date = (new Date());
 const day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
 
 
-const correct =
-  goalWords[Math.floor(day % goalWords.length)].toUpperCase();
+const correct = // "ccccaa".toUpperCase();
+  goalWords[Math.floor((day + 11) % goalWords.length)].toUpperCase();
 let defaulBoard = [];
 let defaultLetters = [];
 
 "abcdefghijklmnopqrstuvwxyz".split("").forEach((i) => {
   defaultLetters[i] = "";
 });
+
 const max_rows = (correct.length < 5)? 4:6;
 
 for (let i = 0; i < max_rows; i++) {
@@ -22,6 +23,19 @@ for (let i = 0; i < max_rows; i++) {
   for (let j = 0; j < correct.length; j++) {
     defaulBoard[i].push(["", ""]);
   }
+}
+
+function letterFrequency(word) {
+  let freq = {}; // create an empty object to store the frequency of each letter
+  for (let i = 0; i < word.length; i++) {
+    let letter = word[i].toUpperCase();;
+    if (freq[letter]) {
+      freq[letter]++;
+    } else {
+      freq[letter] = 1;
+    }
+  }
+  return freq;
 }
 
 
@@ -59,6 +73,14 @@ function Board(props) {
                 }, 1000);
               }
             } else {
+              let freqMap = letterFrequency(correct);
+              // decrease frequency by the amount of correct letters
+              for (let i = 0; i < correct.length; i++) {
+                if (correct[i] === prevBoard[row][i][0] ) {
+                  freqMap[correct[i]]--;
+                }
+              }
+
               if (props.letter === "ENTER") {
                 let correctLetters = 0;
                 let word = "";
@@ -67,11 +89,14 @@ function Board(props) {
                 }
                 if (words.includes(word.toLowerCase()) || correct.toLowerCase() == word.toLowerCase()) {
                   for (let i = 0; i < correct.length; i++) {
-                    if (correct[i] === prevBoard[row][i][0]) {
+                    console.log("how many times does " + prevBoard[row][i][0] + " appear: "+ freqMap[prevBoard[row][i][0]]);
+                    if (correct[i] === prevBoard[row][i][0] ) {
                       prevBoard[row][i][1] = "C";
                       correctLetters++;
-                    } else if (correct.includes(prevBoard[row][i][0]))
+                    } else if (correct.includes(prevBoard[row][i][0]) && freqMap[prevBoard[row][i][0]] > 0) {
                       prevBoard[row][i][1] = "E";
+                      freqMap[prevBoard[row][i][0]] -= 1;
+                    }
                     else prevBoard[row][i][1] = "N";
                     setRow(row + 1);
                     if (row === max_rows-1) { // lose
