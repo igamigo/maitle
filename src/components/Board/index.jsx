@@ -4,11 +4,10 @@ import words from "../../words";
 import goalWords from "../../goal_words";
 
 const date = (new Date());
-const day = Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
-
+const day = (Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))) - 80 // one less of date: 22 march, 2023;
 
 const correct = // "ccccaa".toUpperCase();
-  goalWords[Math.floor((day + 11) % goalWords.length)].toUpperCase();
+  goalWords[Math.floor(day + 49)].toUpperCase();
 let defaulBoard = [];
 let defaultLetters = [];
 
