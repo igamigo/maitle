@@ -51,13 +51,15 @@ const words = [
   "depete",
   "omega",
   "choclo",
-  "mauro",
-  "ivess",
   "sobrante",
   "papets",
   "wigar",
   "laucha",
   "moira",
   "terraza",
+  "mauro",
+  "ivess",
+  "engendrito",
+  "papets",
 ];
 export default words;
