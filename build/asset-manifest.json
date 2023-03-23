@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/maitle/static/css/main.6720c8bc.css",
-    "main.js": "/maitle/static/js/main.95759092.js",
+    "main.js": "/maitle/static/js/main.a484a4da.js",
     "static/js/787.92b9447f.chunk.js": "/maitle/static/js/787.92b9447f.chunk.js",
     "index.html": "/maitle/index.html",
     "main.6720c8bc.css.map": "/maitle/static/css/main.6720c8bc.css.map",
-    "main.95759092.js.map": "/maitle/static/js/main.95759092.js.map",
+    "main.a484a4da.js.map": "/maitle/static/js/main.a484a4da.js.map",
     "787.92b9447f.chunk.js.map": "/maitle/static/js/787.92b9447f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6720c8bc.css",
-    "static/js/main.95759092.js"
+    "static/js/main.a484a4da.js"
   ]
 }

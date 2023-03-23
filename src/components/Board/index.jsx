@@ -7,7 +7,7 @@ const date = (new Date());
 const day = (Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24))) - 80 // one less of date: 22 march, 2023;
 
 const correct = // "ccccaa".toUpperCase();
-  goalWords[Math.floor(day + 49)].toUpperCase();
+  goalWords[(Math.floor(day) + 47) % goalWords.length].toUpperCase();
 let defaulBoard = [];
 let defaultLetters = [];
 
